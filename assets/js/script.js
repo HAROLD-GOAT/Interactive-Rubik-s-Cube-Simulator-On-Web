@@ -321,7 +321,7 @@ function onMouseMove(event){
     let projectedDirections;
 
 
-    if (mousemove_activation <= 5){
+    if (mousemove_activation <= 3){
         delta_position.set(
         event.clientX - initial_position.x,
         event.clientY - initial_position.y
