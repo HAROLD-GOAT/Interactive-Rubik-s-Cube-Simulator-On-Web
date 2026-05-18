@@ -361,7 +361,6 @@ function onMouseMove(event){
         return v2D.normalize(); // We only care about direction
     });
 
-    // 3. Dot Product Comparison
     const score0 = normal_delta.dot(projectedDirections[0]);
     const score1 = normal_delta.dot(projectedDirections[1]);
 
@@ -527,20 +526,17 @@ function snap(){
         do_it = false;
 
         if (cubelet_group) {
-        
-        // We need to bake the rotation into the world matrices
+      
         cubelet_group.updateMatrixWorld(true);
 
-        // We use a while loop because scene.attach REMOVES the child from the group.
-        // If we used a standard for loop, the index would get messed up!
+    
         while (cubelet_group.children.length > 0) {
             const child = cubelet_group.children[0];
             scene.attach(child);
         }
 
-        // 3. Remove the now-empty group from the scene
         scene.remove(cubelet_group);
-        cubelet_group = null; // Clear the reference
+        cubelet_group = null;
         
     }
     }
